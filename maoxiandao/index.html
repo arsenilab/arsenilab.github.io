@@ -1,0 +1,642 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>冒险岛战神攻略 - 职业加点、技能与装备成长全指南</title>
+<meta name="description" content="冒险岛战神攻略专区，整理战神职业定位、技能加点思路、一二三四转成长路线、装备与潜能选择、刷图与打Boss技巧，帮助玩家快速上手这位近战爆发型职业。">
+<meta name="keywords" content="冒险岛战神攻略,冒险岛战神,战神加点,战神技能,战神装备,战神转职">
+<script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+<style>
+:root{
+  --bg:#0e1220;
+  --bg-soft:#161c31;
+  --panel:#1c2440;
+  --panel-2:#232c4d;
+  --line:#2e3860;
+  --txt:#e8ecf8;
+  --txt-dim:#a3adc9;
+  --brand:#ff7a3d;
+  --brand-2:#ffb347;
+  --accent:#4fd1c5;
+  --link:#8ab4ff;
+  --radius:14px;
+  --shadow:0 10px 30px rgba(0,0,0,.35);
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{
+  font-family:"PingFang SC","Microsoft YaHei","Hiragino Sans GB",system-ui,-apple-system,"Helvetica Neue",Arial,sans-serif;
+  background:
+    radial-gradient(1100px 520px at 12% -8%, rgba(255,122,61,.16), transparent 60%),
+    radial-gradient(900px 460px at 92% 4%, rgba(79,209,197,.13), transparent 62%),
+    var(--bg);
+  color:var(--txt);
+  line-height:1.75;
+  font-size:16px;
+  -webkit-font-smoothing:antialiased;
+}
+a{color:var(--link);text-decoration:none;}
+a:hover{text-decoration:underline;}
+img{max-width:100%;display:block;}
+.wrap{width:100%;max-width:1180px;margin:0 auto;padding:0 20px;}
+
+/* 顶部 */
+.topbar{
+  background:rgba(14,18,32,.86);
+  border-bottom:1px solid var(--line);
+  position:sticky;top:0;z-index:50;
+  backdrop-filter:blur(10px);
+}
+.topbar-inner{
+  display:flex;align-items:center;justify-content:space-between;gap:18px;
+  min-height:66px;flex-wrap:wrap;
+}
+.logo{display:flex;align-items:center;gap:10px;font-weight:800;font-size:19px;color:var(--txt);letter-spacing:.5px;}
+.logo:hover{text-decoration:none;}
+.logo-mark{
+  width:34px;height:34px;border-radius:10px;flex:0 0 auto;
+  background:linear-gradient(135deg,var(--brand),var(--brand-2));
+  display:grid;place-items:center;color:#20130a;font-weight:900;font-size:17px;
+  box-shadow:0 6px 16px rgba(255,122,61,.35);
+}
+.logo small{display:block;font-size:11px;font-weight:500;color:var(--txt-dim);letter-spacing:1px;}
+.mainnav{display:flex;gap:6px;flex-wrap:wrap;}
+.mainnav a{
+  color:var(--txt-dim);font-size:14.5px;padding:8px 13px;border-radius:9px;
+  transition:.2s;white-space:nowrap;
+}
+.mainnav a:hover{background:var(--panel);color:var(--txt);text-decoration:none;}
+.mainnav a.on{background:linear-gradient(135deg,rgba(255,122,61,.22),rgba(255,179,71,.14));color:var(--brand-2);}
+
+/* 首屏 */
+.hero{padding:52px 0 40px;border-bottom:1px solid var(--line);}
+.hero-grid{display:grid;grid-template-columns:1.35fr 1fr;gap:38px;align-items:center;}
+.tagline{
+  display:inline-flex;align-items:center;gap:8px;font-size:13px;color:var(--brand-2);
+  background:rgba(255,122,61,.12);border:1px solid rgba(255,122,61,.3);
+  padding:5px 13px;border-radius:999px;margin-bottom:18px;
+}
+.tagline::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--brand);}
+.hero h1{
+  font-size:clamp(28px,4.4vw,44px);line-height:1.24;font-weight:900;letter-spacing:.5px;
+  margin-bottom:16px;
+}
+.hero h1 em{
+  font-style:normal;
+  background:linear-gradient(100deg,var(--brand),var(--brand-2));
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+}
+.hero p.lead{color:var(--txt-dim);font-size:16.5px;max-width:640px;margin-bottom:24px;}
+.hero-actions{display:flex;gap:12px;flex-wrap:wrap;}
+.btn{
+  display:inline-block;padding:11px 22px;border-radius:11px;font-size:15px;font-weight:600;
+  transition:.2s;border:1px solid transparent;cursor:pointer;
+}
+.btn-main{background:linear-gradient(135deg,var(--brand),var(--brand-2));color:#20130a;box-shadow:0 8px 22px rgba(255,122,61,.3);}
+.btn-main:hover{transform:translateY(-2px);text-decoration:none;color:#20130a;}
+.btn-ghost{border-color:var(--line);color:var(--txt);background:rgba(255,255,255,.03);}
+.btn-ghost:hover{background:var(--panel);text-decoration:none;color:var(--txt);}
+
+.stat-card{
+  background:linear-gradient(160deg,var(--panel),var(--bg-soft));
+  border:1px solid var(--line);border-radius:var(--radius);
+  padding:24px;box-shadow:var(--shadow);
+}
+.stat-card h3{font-size:15px;color:var(--txt-dim);font-weight:600;margin-bottom:14px;letter-spacing:1px;}
+.stat-list{list-style:none;display:grid;gap:12px;}
+.stat-list li{display:flex;justify-content:space-between;gap:12px;font-size:14.5px;border-bottom:1px dashed var(--line);padding-bottom:10px;}
+.stat-list li:last-child{border-bottom:0;padding-bottom:0;}
+.stat-list span:first-child{color:var(--txt-dim);}
+.stat-list span:last-child{color:var(--brand-2);font-weight:700;text-align:right;}
+
+/* 通用区块 */
+section.block{padding:46px 0;}
+.sec-head{display:flex;align-items:flex-end;justify-content:space-between;gap:20px;margin-bottom:26px;flex-wrap:wrap;}
+.sec-head h2{font-size:clamp(21px,2.6vw,27px);font-weight:800;letter-spacing:.5px;}
+.sec-head h2::after{content:"";display:block;width:46px;height:3px;border-radius:2px;margin-top:10px;background:linear-gradient(90deg,var(--brand),var(--brand-2));}
+.sec-head p{color:var(--txt-dim);font-size:14.5px;max-width:560px;}
+
+/* 卡片网格 */
+.grid{display:grid;gap:18px;}
+.grid-3{grid-template-columns:repeat(3,1fr);}
+.grid-2{grid-template-columns:repeat(2,1fr);}
+.grid-4{grid-template-columns:repeat(4,1fr);}
+.card{
+  background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);
+  padding:22px;transition:.22s;height:100%;
+}
+.card:hover{transform:translateY(-3px);border-color:rgba(255,122,61,.45);box-shadow:var(--shadow);}
+.card h3{font-size:17px;margin-bottom:10px;display:flex;align-items:center;gap:9px;}
+.card h3 .dot{width:9px;height:9px;border-radius:3px;background:var(--brand);flex:0 0 auto;}
+.card p{color:var(--txt-dim);font-size:14.5px;}
+.card ul{list-style:none;margin-top:12px;display:grid;gap:8px;}
+.card ul li{font-size:14.2px;color:var(--txt-dim);padding-left:16px;position:relative;}
+.card ul li::before{content:"";position:absolute;left:0;top:9px;width:6px;height:6px;border-radius:2px;background:var(--accent);opacity:.85;}
+.card .meta{margin-top:14px;font-size:12.5px;color:var(--txt-dim);display:flex;gap:10px;flex-wrap:wrap;}
+.card .meta b{color:var(--accent);font-weight:600;}
+
+/* 转职路线 */
+.route{display:grid;gap:16px;}
+.route-item{
+  display:grid;grid-template-columns:96px 1fr;gap:20px;
+  background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);
+  padding:20px 22px;position:relative;overflow:hidden;
+}
+.route-item::before{
+  content:"";position:absolute;left:0;top:0;bottom:0;width:4px;
+  background:linear-gradient(180deg,var(--brand),var(--brand-2));
+}
+.route-badge{
+  align-self:start;text-align:center;background:var(--panel-2);border-radius:11px;
+  padding:10px 6px;border:1px solid var(--line);
+}
+.route-badge b{display:block;font-size:19px;color:var(--brand-2);}
+.route-badge span{font-size:12px;color:var(--txt-dim);}
+.route-item h3{font-size:16.5px;margin-bottom:8px;}
+.route-item p{color:var(--txt-dim);font-size:14.4px;}
+.route-item .keys{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px;}
+.chip{
+  font-size:12.5px;padding:4px 11px;border-radius:999px;
+  background:rgba(79,209,197,.12);color:var(--accent);border:1px solid rgba(79,209,197,.28);
+}
+
+/* 表格 */
+.table-wrap{overflow-x:auto;border:1px solid var(--line);border-radius:var(--radius);background:var(--panel);}
+table{width:100%;border-collapse:collapse;min-width:640px;}
+th,td{padding:13px 16px;text-align:left;font-size:14.3px;border-bottom:1px solid var(--line);}
+th{background:var(--panel-2);color:var(--brand-2);font-weight:700;white-space:nowrap;}
+td{color:var(--txt-dim);}
+tr:last-child td{border-bottom:0;}
+tbody tr:hover td{background:rgba(255,255,255,.025);color:var(--txt);}
+
+/* 技巧列表 */
+.tips{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;}
+.tip{
+  background:var(--bg-soft);border:1px solid var(--line);border-left:3px solid var(--accent);
+  border-radius:10px;padding:18px 20px;
+}
+.tip h3{font-size:15.5px;margin-bottom:8px;color:var(--txt);}
+.tip p{font-size:14.2px;color:var(--txt-dim);}
+
+/* FAQ */
+.faq{display:grid;gap:12px;}
+.faq details{
+  background:var(--panel);border:1px solid var(--line);border-radius:12px;
+  padding:0 20px;transition:.2s;
+}
+.faq details[open]{border-color:rgba(255,122,61,.4);}
+.faq summary{
+  cursor:pointer;list-style:none;padding:17px 0;font-size:15.5px;font-weight:600;
+  display:flex;justify-content:space-between;align-items:center;gap:14px;color:var(--txt);
+}
+.faq summary::-webkit-details-marker{display:none;}
+.faq summary::after{
+  content:"+";font-size:20px;color:var(--brand-2);font-weight:400;line-height:1;flex:0 0 auto;
+}
+.faq details[open] summary::after{content:"−";}
+.faq .ans{padding:0 0 18px;color:var(--txt-dim);font-size:14.4px;border-top:1px dashed var(--line);padding-top:14px;}
+
+/* 侧栏布局 */
+.split{display:grid;grid-template-columns:1fr 330px;gap:26px;align-items:start;}
+.side{display:grid;gap:18px;position:sticky;top:86px;}
+.side-box{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:20px;}
+.side-box h3{font-size:15.5px;margin-bottom:14px;color:var(--brand-2);letter-spacing:.5px;}
+.side-box ol,.side-box ul{list-style:none;display:grid;gap:11px;}
+.side-box li{font-size:14.2px;color:var(--txt-dim);border-bottom:1px dashed var(--line);padding-bottom:10px;}
+.side-box li:last-child{border-bottom:0;padding-bottom:0;}
+.side-box li b{color:var(--txt);display:block;font-size:14.4px;margin-bottom:2px;font-weight:600;}
+
+/* 页脚 */
+footer{
+  margin-top:30px;border-top:1px solid var(--line);background:rgba(14,18,32,.7);
+  padding:40px 0 26px;
+}
+.foot-grid{display:grid;grid-template-columns:1.6fr 1fr 1fr;gap:30px;margin-bottom:28px;}
+.foot-grid h4{font-size:15px;margin-bottom:14px;color:var(--txt);}
+.foot-grid p,.foot-grid li{font-size:13.8px;color:var(--txt-dim);}
+.foot-grid ul{list-style:none;display:grid;gap:9px;}
+.foot-bottom{
+  border-top:1px solid var(--line);padding-top:18px;font-size:13px;color:var(--txt-dim);
+  display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;
+}
+
+/* 响应式 */
+@media (max-width:1000px){
+  .hero-grid{grid-template-columns:1fr;}
+  .grid-3,.grid-4{grid-template-columns:repeat(2,1fr);}
+  .split{grid-template-columns:1fr;}
+  .side{position:static;}
+  .foot-grid{grid-template-columns:1fr 1fr;}
+}
+@media (max-width:680px){
+  body{font-size:15.4px;}
+  .grid-3,.grid-4,.grid-2,.tips{grid-template-columns:1fr;}
+  .hero{padding:36px 0 30px;}
+  .route-item{grid-template-columns:1fr;gap:12px;}
+  .route-badge{display:flex;gap:10px;align-items:baseline;justify-content:flex-start;padding:8px 12px;}
+  .route-badge b{font-size:16px;}
+  .foot-grid{grid-template-columns:1fr;}
+  .mainnav a{padding:7px 10px;font-size:13.6px;}
+  section.block{padding:34px 0;}
+}
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="wrap topbar-inner">
+    <a class="logo" href="#top">
+      <span class="logo-mark">战</span>
+      <span>战神攻略站<small>冒险岛职业成长指南</small></span>
+    </a>
+    <nav class="mainnav">
+      <a href="#intro" class="on">职业概览</a>
+      <a href="#route">转职路线</a>
+      <a href="#skill">技能加点</a>
+      <a href="#gear">装备潜能</a>
+      <a href="#play">刷图与Boss</a>
+      <a href="#faq">常见问题</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- 首屏 -->
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <span class="tagline">近战爆发 · 战士系 · 双手武器职业</span>
+        <h1>冒险岛战神攻略：<em>从转职到满级</em>的完整成长思路</h1>
+        <p class="lead">
+          战神是冒险岛中战士职业群里的近战输出型职业，以双手武器、高倍率单体和爽快的连击手感著称。
+          这份攻略按“职业定位 → 转职路线 → 技能加点 → 装备潜能 → 刷图与打Boss”的顺序整理，
+          帮助刚接触战神或准备回归的玩家，理清每一步该做什么、优先级如何安排。
+        </p>
+        <div class="hero-actions">
+          <a class="btn btn-main" href="#route">查看转职路线</a>
+          <a class="btn btn-ghost" href="#skill">技能加点思路</a>
+        </div>
+      </div>
+      <aside class="stat-card">
+        <h3>职业速览</h3>
+        <ul class="stat-list">
+          <li><span>职业群</span><span>战士系</span></li>
+          <li><span>武器类型</span><span>双手武器（斧 / 剑类）</span></li>
+          <li><span>输出定位</span><span>近战单体爆发为主</span></li>
+          <li><span>核心优势</span><span>连击流畅、单体伤害集中</span></li>
+          <li><span>上手难度</span><span>中等，需熟悉技能循环</span></li>
+        </ul>
+      </aside>
+    </div>
+  </section>
+
+  <!-- 职业概览 -->
+  <section class="block" id="intro">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2>战神是什么样的职业</h2>
+        <p>先弄清楚定位，再决定是否投入资源，能少走很多弯路。</p>
+      </div>
+      <div class="grid grid-3">
+        <article class="card">
+          <h3><span class="dot"></span>职业定位</h3>
+          <p>战神属于战士职业群，使用双手武器进行近身作战。它的输出重心偏向单体与少量目标的持续打击，技能循环节奏紧凑，适合喜欢“贴脸打、看数字跳”的玩家。</p>
+        </article>
+        <article class="card">
+          <h3><span class="dot"></span>核心优势</h3>
+          <ul>
+            <li>单体伤害集中，打Boss时输出效率较高</li>
+            <li>连击手感顺畅，操作反馈直接</li>
+            <li>战士系通用生存能力，容错相对友好</li>
+          </ul>
+        </article>
+        <article class="card">
+          <h3><span class="dot"></span>需要注意</h3>
+          <ul>
+            <li>清图范围不如部分法师、弓箭手职业</li>
+            <li>需要一定装备与潜能支撑才有明显输出</li>
+            <li>技能循环不熟时，实际伤害会打折扣</li>
+          </ul>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- 转职路线 -->
+  <section class="block" id="route">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2>转职路线与阶段重点</h2>
+        <p>不同版本对转职等级与任务细节可能有调整，以下按常见阶段划分，具体以你所在服务器版本为准。</p>
+      </div>
+      <div class="route">
+        <article class="route-item">
+          <div class="route-badge"><b>一转</b><span>起步期</span></div>
+          <div>
+            <h3>打好基础：熟悉普攻与位移</h3>
+            <p>一转阶段主要目标是熟悉角色移动、基础攻击与最早获得的主动技能。此时不用纠结装备，优先跟着主线任务升级，把地图探索和技能按键手感建立起来。</p>
+            <div class="keys"><span class="chip">主线任务优先</span><span class="chip">熟悉位移</span><span class="chip">不急于强化装备</span></div>
+          </div>
+        </article>
+        <article class="route-item">
+          <div class="route-badge"><b>二转</b><span>成长期</span></div>
+          <div>
+            <h3>输出技能成型，开始讲效率</h3>
+            <p>二转后战神的主要输出手段逐渐清晰，清怪速度明显提升。这个阶段建议把技能点集中在常用输出技能上，同时开始留意武器的基础攻击力，避免用明显过时的装备拖慢升级。</p>
+            <div class="keys"><span class="chip">主输出技能优先</span><span class="chip">更新武器</span><span class="chip">组队刷图</span></div>
+          </div>
+        </article>
+        <article class="route-item">
+          <div class="route-badge"><b>三转</b><span>强化期</span></div>
+          <div>
+            <h3>技能循环与增益搭配</h3>
+            <p>三转通常会带来更强的主动技能与辅助增益。此时要开始研究“先开什么、再打什么”的顺序，把增益技能的持续时间与输出窗口对齐，是提升实际伤害性价比最高的做法。</p>
+            <div class="keys"><span class="chip">增益与输出对齐</span><span class="chip">技能循环练习</span><span class="chip">潜能初步规划</span></div>
+          </div>
+        </article>
+        <article class="route-item">
+          <div class="route-badge"><b>四转</b><span>成型期</span></div>
+          <div>
+            <h3>核心输出与Boss战定位</h3>
+            <p>四转后战神的单体爆发能力进一步体现，技能组合也趋于完整。这一阶段建议把资源集中到核心输出技能与主武器上，同时根据自己常打的副本类型，决定是偏重刷图效率还是Boss单体。</p>
+            <div class="keys"><span class="chip">核心技能满级</span><span class="chip">主武器优先</span><span class="chip">明确副本方向</span></div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- 技能加点 -->
+  <section class="block" id="skill">
+    <div class="wrap split">
+      <div>
+        <div class="sec-head">
+          <h2>技能加点与循环思路</h2>
+          <p>加点没有唯一答案，但优先级逻辑是通用的：先把最常用的输出技能点满，再补增益与被动。</p>
+        </div>
+
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>优先级</th>
+                <th>技能类别</th>
+                <th>加点建议</th>
+                <th>说明</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>最高</td>
+                <td>主输出技能</td>
+                <td>优先点满</td>
+                <td>决定你日常刷图和打Boss的基础伤害，最先投入技能点。</td>
+              </tr>
+              <tr>
+                <td>高</td>
+                <td>增益 / 强化技能</td>
+                <td>按需点满</td>
+                <td>提升整体输出或生存，注意与输出技能的持续时间配合。</td>
+              </tr>
+              <tr>
+                <td>中</td>
+                <td>被动增伤</td>
+                <td>逐步补满</td>
+                <td>长期收益稳定，技能点富余时优先补齐。</td>
+              </tr>
+              <tr>
+                <td>中</td>
+                <td>位移 / 机动</td>
+                <td>够用即可</td>
+                <td>保证走位和躲避机制顺畅，不必过度投入。</td>
+              </tr>
+              <tr>
+                <td>低</td>
+                <td>低频辅助技能</td>
+                <td>最后考虑</td>
+                <td>使用频率低的技能可以延后，避免浪费技能点。</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="tips" style="margin-top:24px;">
+          <div class="tip">
+            <h3>循环的核心逻辑</h3>
+            <p>先开增益，再进入输出窗口；输出期间尽量保持技能不断档，避免出现“站着发呆等冷却”的空窗期。</p>
+          </div>
+          <div class="tip">
+            <h3>技能点不要平均分</h3>
+            <p>平均分配往往导致每个技能都不够强。集中资源把主力技能点满，实际收益通常高于全面铺开。</p>
+          </div>
+          <div class="tip">
+            <h3>先练手感再谈伤害</h3>
+            <p>战神是操作反馈很强的职业，按键节奏熟练后，同样的装备也能打出更稳定的输出。</p>
+          </div>
+          <div class="tip">
+            <h3>根据副本调整</h3>
+            <p>常刷小怪图和常打Boss，对技能的需求并不完全一样，可以准备两套思路随时切换。</p>
+          </div>
+        </div>
+      </div>
+
+      <aside class="side">
+        <div class="side-box">
+          <h3>加点速查顺序</h3>
+          <ol>
+            <li><b>第一步</b>主输出技能点满</li>
+            <li><b>第二步</b>核心增益技能补齐</li>
+            <li><b>第三步</b>被动增伤逐步补满</li>
+            <li><b>第四步</b>位移技能够用即可</li>
+            <li><b>第五步</b>低频技能最后处理</li>
+          </ol>
+        </div>
+        <div class="side-box">
+          <h3>常见加点误区</h3>
+          <ul>
+            <li><b>误区一</b>所有技能平均加点，导致主力技能偏弱。</li>
+            <li><b>误区二</b>忽略增益技能，只看单个技能面板。</li>
+            <li><b>误区三</b>频繁洗点，浪费资源且难以熟悉循环。</li>
+          </ul>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <!-- 装备潜能 -->
+  <section class="block" id="gear">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2>装备与潜能选择</h2>
+        <p>装备投入要讲顺序：先武器，再防具，最后才是细节打磨。</p>
+      </div>
+      <div class="grid grid-3">
+        <article class="card">
+          <h3><span class="dot"></span>武器优先</h3>
+          <p>双手武器是战神输出的直接来源，武器的基础攻击力与强化等级对伤害影响最明显。资源有限时，优先把武器提升到当前版本可用水平。</p>
+          <div class="meta"><b>优先级：最高</b></div>
+        </article>
+        <article class="card">
+          <h3><span class="dot"></span>防具与生存</h3>
+          <p>防具除了提供防御，也承担套装效果与潜能位置。战士系本身容错较高，防具可以按“够用即可”的节奏逐步替换，不必一步到位。</p>
+          <div class="meta"><b>优先级：中高</b></div>
+        </article>
+        <article class="card">
+          <h3><span class="dot"></span>潜能搭配</h3>
+          <p>潜能方向通常围绕攻击力、伤害、Boss伤害等属性展开。具体词条与数值受版本影响较大，建议以游戏内实际显示和当前主流搭配为准。</p>
+          <div class="meta"><b>优先级：中</b></div>
+        </article>
+        <article class="card">
+          <h3><span class="dot"></span>饰品与补充</h3>
+          <p>饰品往往提供额外的属性与特殊效果，属于中后期逐步完善的部分。前期不必过度投入，先把主武器和核心防具稳定下来。</p>
+          <div class="meta"><b>优先级：中</b></div>
+        </article>
+        <article class="card">
+          <h3><span class="dot"></span>强化节奏</h3>
+          <p>强化存在失败风险，建议在资源充足、装备定位明确后再集中投入，避免在过渡装备上消耗过多材料。</p>
+          <div class="meta"><b>优先级：看阶段</b></div>
+        </article>
+        <article class="card">
+          <h3><span class="dot"></span>版本差异提醒</h3>
+          <p>不同服务器与版本对装备、潜能、强化规则的设定可能不同。涉及具体数值时，请以你所在游戏的当前版本说明为准。</p>
+          <div class="meta"><b>以游戏内为准</b></div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- 刷图与Boss -->
+  <section class="block" id="play">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2>刷图与Boss实战技巧</h2>
+        <p>同样的装备，打法不同，效率差距可能很大。</p>
+      </div>
+      <div class="grid grid-2">
+        <article class="card">
+          <h3><span class="dot"></span>刷图效率</h3>
+          <ul>
+            <li>选择怪物密度高、地形平坦的地图，减少跑图时间</li>
+            <li>把范围技能用在怪物聚集处，单体技能留给精英怪</li>
+            <li>保持增益常驻，避免中途断档导致清怪变慢</li>
+            <li>合理利用位移技能衔接路线，减少无意义走位</li>
+          </ul>
+        </article>
+        <article class="card">
+          <h3><span class="dot"></span>Boss战要点</h3>
+          <ul>
+            <li>开打前先确认增益状态是否齐全</li>
+            <li>观察Boss的攻击前摇，提前规划走位</li>
+            <li>在安全窗口内集中输出，不贪刀</li>
+            <li>熟悉机制比堆伤害更重要，减少无谓死亡</li>
+          </ul>
+        </article>
+        <article class="card">
+          <h3><span class="dot"></span>组队配合</h3>
+          <p>组队时战神更适合承担近身输出角色，注意与队友的控制、增益节奏配合。不要一味贴脸，给治疗和辅助留出反应空间。</p>
+        </article>
+        <article class="card">
+          <h3><span class="dot"></span>日常养成节奏</h3>
+          <p>把每日任务、副本和刷图安排成固定流程，比想起来才玩更容易稳定成长。资源集中投在主武器和核心技能上，长期收益更明显。</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="block" id="faq">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2>常见问题</h2>
+        <p>整理玩家在搜索战神攻略时最常遇到的疑问。</p>
+      </div>
+      <div class="faq">
+        <details open>
+          <summary>战神适合新手玩吗？</summary>
+          <div class="ans">战神属于战士职业群，生存能力相对友好，操作反馈直接，对新手来说不算难以上手。但它对技能循环和装备有一定依赖，想打出理想伤害仍需要花时间熟悉。</div>
+        </details>
+        <details>
+          <summary>战神应该优先堆攻击力还是Boss伤害？</summary>
+          <div class="ans">这取决于你主要玩的内容。如果以刷图为主，通用攻击与范围清怪能力更实用；如果以打Boss为主，Boss相关属性会更集中地提升输出。建议先明确玩法方向，再决定潜能侧重。</div>
+        </details>
+        <details>
+          <summary>技能点加错了怎么办？</summary>
+          <div class="ans">多数版本提供技能点重置途径，但可能需要消耗道具或资源。建议在加点前先确定主输出技能，避免频繁洗点造成浪费。</div>
+        </details>
+        <details>
+          <summary>战神和同职业群其他职业比有什么特点？</summary>
+          <div class="ans">战神的特点是近战单体输出集中、连击手感强。不同职业在范围清怪、辅助能力、操作难度上各有侧重，选择时建议结合自己的玩法偏好，而不是只看单一维度。</div>
+        </details>
+        <details>
+          <summary>攻略里的数值可以直接照搬吗？</summary>
+          <div class="ans">不建议直接照搬。不同版本、不同服务器对技能、装备和强化的设定可能不同，本文提供的是思路与优先级框架，具体数值请以你所在游戏的当前版本为准。</div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <h4>关于本站</h4>
+        <p>战神攻略站专注于整理冒险岛战神职业的成长思路，包括转职路线、技能加点、装备方向与实战技巧，内容以通用框架为主，方便不同版本的玩家参考。</p>
+      </div>
+      <div>
+        <h4>内容导航</h4>
+        <ul>
+          <li><a href="#intro">职业概览</a></li>
+          <li><a href="#route">转职路线</a></li>
+          <li><a href="#skill">技能加点</a></li>
+          <li><a href="#gear">装备潜能</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>阅读提示</h4>
+        <ul>
+          <li>版本更新可能影响具体数值</li>
+          <li>以游戏内实际说明为准</li>
+          <li>理性安排游戏时间</li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>冒险岛战神攻略 · 职业成长参考</span>
+      <span>内容仅供玩家交流参考，与游戏官方无关</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var links = document.querySelectorAll('.mainnav a');
+  var sections = [];
+  links.forEach(function(a){
+    var id = a.getAttribute('href');
+    if(id && id.charAt(0) === '#'){
+      var el = document.querySelector(id);
+      if(el) sections.push({link:a, el:el});
+    }
+  });
+  if(!sections.length) return;
+
+  function onScroll(){
+    var pos = window.scrollY + 120;
+    var current = sections[0];
+    sections.forEach(function(item){
+      if(item.el.offsetTop <= pos) current = item;
+    });
+    links.forEach(function(a){ a.classList.remove('on'); });
+    if(current) current.link.classList.add('on');
+  }
+  window.addEventListener('scroll', onScroll, {passive:true});
+  onScroll();
+})();
+</script>
+
+</body>
+            </html>
